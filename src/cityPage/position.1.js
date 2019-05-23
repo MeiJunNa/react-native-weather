@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     Text,
-    View,
-    Button
+    View
 } from 'react-native';
 //无需导入
 // As a browser polyfill, this API is available through the navigator.geolocation global - you do not need to import it.
@@ -14,10 +13,8 @@ class position extends Component {
             initialPosition: 'Unknow',
             lastPosition: 'Unknow',
         }
-        this._onPress = this._onPress.bind(this)
     }
-    // componentDidMount() {
-    _onPress(){
+    componentDidMount() {
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 var initialPosition = JSON.stringify(position.coords);
@@ -54,16 +51,13 @@ class position extends Component {
     render() {
         return (
             <View>
-                <Button title = "currentLocation" 
-                style={styles.locationButton}
-                onPress={this._onPress} />
                 <Text>
-                    <Text style={styles.title}>Initial position: 
-                    {this.state.initialPosition}</Text>
+                    <Text style={styles.title}>Initial position: </Text>
+                    {this.state.initialPosition}
                 </Text>
                 <Text>
-                    <Text style={styles.title}>Current position: 
-                    {this.state.lastPosition}</Text>
+                    <Text style={styles.title}>Current position: </Text>
+                    {this.state.lastPosition}
                 </Text>
             </View>
         );
@@ -73,11 +67,5 @@ export default position
 const styles = StyleSheet.create({
     title: {
         fontWeight: '500',
-        color:"white"
     },
-    locationButton:{
-        backgroundColor:"white",
-        width:300,
-        height:200
-    }
 });

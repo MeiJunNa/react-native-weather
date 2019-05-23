@@ -3,6 +3,7 @@ import { SafeAreaView, ImageBackground } from 'react-native';
 import WeatherInfo from './WeatherInfo'
 import Forecast from "./Forecast"
 import Suggest from "./Suggest"
+// import Position from "../cityPage/position"
 class WeatherIndex extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
@@ -17,6 +18,7 @@ class WeatherIndex extends Component {
                     <WeatherInfo {...this.props}/>
                     <Forecast {...this.props}/>
                     <Suggest {...this.props}/>
+                    {/* <Position /> */}
                 </SafeAreaView>
             </ImageBackground>
         );
